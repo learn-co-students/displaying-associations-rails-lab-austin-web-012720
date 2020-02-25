@@ -1,8 +1,18 @@
 class ArtistsController < ApplicationController
+
+  def song_count
+    @artists = Artist.all
+    @artists.each do |artist|
+      artist.songs.count
+    end
+  end
+
   def index
+    @artists = Artist.all
   end
 
   def show
+    @artist = Artist.find(params[:id])
   end
 
   def new
